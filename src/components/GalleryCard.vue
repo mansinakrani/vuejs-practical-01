@@ -1,10 +1,10 @@
 <template>
-    <div class="container">
-      <h1>{{ title }}</h1>
-      <h3>{{ heading }}</h3>
-      <img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNhciUyMGRlYWxlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="Mercedes Car" />
-      <h4>{{ details }}</h4>
-      <button type="button" @click="info">Info</button>
+    <div class="dataContainer">
+      <div class="dataTitle">{{ dataTitle }}</div>
+      <div class="carName">{{ carName }}</div>
+      <div v-if="carPic"><img :src="carPic" alt="Mercedes Car" /></div>
+      <div class="carDetails">{{ carDetails }}</div>
+      <button type="button" @click="clickInfo">Info</button>
     </div>
 </template>
 
@@ -13,13 +13,14 @@ export default {
   name: 'GalleryCard',
   data() {
     return {
-      title: "Car Showroom",
-      heading: "MERCEDES-BENZ GLC COUPE",
-      details: "Mercedes-Benz GLC Coupe is offered in 2 variants - the base model of GLC Coupe is 300 4MATIC is the petrol variant in the GLC Coupe lineup and is priced at ₹ 70.95 Lakh and the top variant Mercedes-Benz GLC Coupe 300d 4MATIC which comes at a price tag of Rs. 72.00 Lakh",
+      dataTitle: "Car Showroom",
+      carName: "MERCEDES-BENZ GLC COUPE",
+      carPic:'https://images.unsplash.com/photo-1590362891991-f776e747a588?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNhciUyMGRlYWxlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+      carDetails: "Mercedes-Benz GLC Coupe is offered in 2 variants - the base model of GLC Coupe is 300 4MATIC is the petrol variant in the GLC Coupe lineup and is priced at ₹ 70.95 Lakh and the top variant Mercedes-Benz GLC Coupe 300d 4MATIC which comes at a price tag of Rs. 72.00 Lakh",
     };
   },
   methods: {
-  info() {
+  clickInfo() {
     alert(`Car Price is ₹ 70-73 Lakh !`)
   }
 }
@@ -28,17 +29,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container{
+.dataContainer{
  background-color: rgb(187, 234, 235);
  border-radius: 15px;
  box-shadow: rgba(112, 112, 220, 0.1) 0px 8px 24px, rgba(223, 28, 28, 0.1) 0px 16px 56px, #f265651a 0px 24px 80px;
 }
 
-h1 {
+.dataTitle {
+  font-size: 32px;
   text-shadow: 5px 5px 5px rgb(103, 126, 128);
 }
 
-h3 {
+.carName {
   margin: 20px 0 0;
   font-style: oblique;
 }
@@ -48,7 +50,7 @@ img {
   width: auto;
 }
 
-h4 {
+.carDetails {
   font-size: medium;
 }
 
@@ -101,17 +103,17 @@ button {
     width: 250px;
   }
 
-  h1 {
+  .dataTitle {
     font-size: 29px;
   }
 
-  h3 {
+  .carName {
     margin: 20px 0 0;
     font-style: oblique;
     font-size: 20px;
   }
 
-  h4 {
+  .carDetails {
     font-size: small;
   }
 }
